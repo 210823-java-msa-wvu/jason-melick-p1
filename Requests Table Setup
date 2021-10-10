@@ -1,0 +1,232 @@
+create table project1.requests (
+
+req_id 				serial											primary key,
+req_by 				integer			not null		constraint fk_req_emp			references employees(emp_id)	on delete cascade,
+
+req_date			timestamp														default current_timestamp,	
+
+starts_on			date			not null,
+start_time			time			not null,
+
+urgent				boolean 		not null										default false,
+
+
+
+institution 		varchar			not null,
+inst_city			varchar			not null,
+inst_state			varchar			not null,
+
+event_type			varchar			not null,
+event_desc			varchar			not null,
+event_cost			numeric(15,2)	not null, 
+event_att			boolean			not null 										default false,
+event_att_id		integer							constraint fk_event_att			references attachments(att_id)	on delete cascade,
+justification		varchar			not null,
+
+
+
+
+sup_pre_app			boolean			not null 										default false,
+spa_att				integer							constraint fk_spa_att			references attachments(att_id)  on delete cascade,
+
+dh_pre_app			boolean			not null										default false,
+dhpa_att			integer							constraint fk_dhpa_att			references attachments(att_id)	on delete cascade,
+
+
+
+
+
+proj_amt			numeric(15,2)	not null,
+
+
+
+
+grade_format		varchar				not null,
+
+pass_fail			boolean				not null										default false,
+pf_min				varchar				not null										default 'pass',									
+
+pass_pct			boolean				not null										default false,
+pp_min				integer				not null										default 75,
+
+pass_ltr			boolean				not null										default false,
+pl_min				varchar(1)			not null										default 'd',
+
+
+
+
+
+time_missed			integer				not null										default 0,
+
+
+
+
+sup_app					boolean			not null									default false,
+sup_app_inf_req			boolean			not null									default false,
+sup_app_inf_att			integer								constraint fk_sup_inf_att		references attachments(att_id) 	on delete cascade,
+sup_app_by				integer								constraint fk_sup_id			references employees(emp_id) 	on delete cascade,
+
+dh_app					boolean			not null									default false,
+dh_app_inf_req			boolean			not null									default false,
+dh_app_inf_att			integer								constraint fk_dh_inf_att		references attachments(att_id) 	on delete cascade,
+dh_app_by				integer								constraint fk_dh_id				references employees(emp_id) 	on delete cascade,
+
+benco_app				boolean			not null									default false,
+benco_app_inf_req		boolean			not null									default false,
+benco_app_inf_att		integer								constraint fk_benco_inf_att		references attachments(att_id) 	on delete cascade,
+benco_app_by			integer								constraint fk_benco_app_id		references employees(emp_id) 	on delete cascade,
+
+
+
+
+benco_downgrade			boolean			not null									default false,
+benco_upgrade			boolean			not null									default false,
+emp_reject				boolean			not null									default false,	
+
+
+final_amt				numeric(15,2)	not null									default 0.00,
+
+
+
+grade_passed			boolean			not null									default false,
+grade_by				integer								constraint fk_benco_grade_by	references employees(emp_id)	on delete cascade,
+pres_passed				boolean			not null									default false,
+pres_by					integer								constraint fk_pres_rev_by		references employees(emp_id)	on delete cascade,
+
+
+reimburse				boolean			not null									default false
+
+);
+
+alter table requests add column 
+	denied 				boolean 		not null									default false;
+
+alter table requests add column
+	den_by				integer
+		constraint den_by_id
+			references employees(emp_id)
+				on delete cascade;
+			
+alter table requests add column
+	den_on		timestamp;
+			
+alter table requests add column
+	den_reason	text;
+	
+alter table requests add column
+	grade_att_id integer
+		constraint fk_grade_att
+			references attachments(att_id)
+				on delete cascade;
+				
+alter table requests add column
+	grade_submitted boolean 
+		default false;
+		
+alter table requests add column
+	presGrade boolean
+		default false;
+		
+alter table requests add column
+	why_benco_upgrade varchar;
+	
+alter table requests drop constraint fk_req_emp;
+alter table requests 
+		add foreign key(req_by)
+			references project1.employees(emp_id);
+		
+alter table requests drop constraint fk_event_att;
+alter table requests 
+		add foreign key(event_att_id)
+			references attachments(att_id);
+		
+alter table requests drop constraint fk_spa_att;
+alter table requests 
+		add foreign key(spa_att)
+			references attachments(att_id);
+	
+alter table requests drop constraint fk_dhpa_att;
+alter table requests 
+		add foreign key(dhpa_att)
+			references attachments(att_id);
+
+alter table requests drop constraint fk_sup_inf_att;
+alter table requests 
+		add foreign key(sup_app_inf_att)
+			references attachments(att_id);
+
+alter table requests drop constraint fk_sup_id;
+alter table requests 
+		add foreign key(sup_app_by)
+			references employees(emp_id);
+
+alter table requests drop constraint fk_dh_inf_att;
+alter table requests 
+		add foreign key(dh_app_inf_att)
+			references attachments(att_id);
+
+alter table requests drop constraint fk_dh_id;
+alter table requests 
+		add foreign key(dh_app_by)
+			references employees(emp_id);
+
+
+alter table requests drop constraint fk_benco_inf_att;
+alter table requests 
+		add foreign key(benco_app_inf_att)
+			references attachments(att_id);
+
+alter table requests drop constraint fk_benco_app_id;
+alter table requests 
+		add foreign key(benco_app_by)
+			references employees(emp_id);
+
+		
+alter table requests drop constraint fk_benco_grade_by;
+alter table requests 
+		add foreign key(grade_by)
+			references employees(emp_id);
+
+
+alter table requests drop constraint fk_pres_rev_by;
+alter table requests 
+		add foreign key(pres_by)
+			references employees(emp_id);
+
+			
+alter table requests drop constraint den_by_id;
+alter table requests 
+		add foreign key(den_by)
+			references employees(emp_id);
+			
+alter table requests drop constraint fk_grade_att;
+alter table requests 
+		add foreign key(grade_att_id)
+			references attachments(att_id);
+
+select * from project1.requests;
+
+select * from project1.requests where req_by = 1;
+
+SELECT * FROM project1.requests WHERE req_by = 1
+
+update project1.requests set event_desc = 'Java Certification Test' where req_by = 1;
+
+alter table project1.requests 
+	alter column start_time type varchar;
+	
+alter table project1.requests 
+	alter column req_date type date;
+	
+alter table project1.requests 
+	alter column req_date set default current_date;
+	
+
+
+insert into project1.requests (req_by, starts_on, start_time, urgent, institution, inst_city, inst_state, event_type, event_desc, event_cost, justification, proj_amt, grade_format, time_missed, sup_app_inf_req)
+values(1, '2021-11-05', '08:00:00', 'true', 'Texas A&M - San Antonio', 'San Antonio', 'TX', 'certification', 'Java Certification Workshop', 500, 'I need to get better at Java for my job', 500, 'pf', 16, true);
+
+select * from requests;
+
+truncate table only requests;
+

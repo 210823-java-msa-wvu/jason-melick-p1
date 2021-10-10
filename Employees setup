@@ -1,0 +1,27 @@
+CREATE TABLE project1.employees (
+
+emp_id 			SERIAL 		primary key,
+
+first_name 		varchar 					not null,
+last_name		varchar						not null,
+username 		varchar		unique			not null,
+password 		varchar						not null,
+
+department		varchar(20)					not null,
+supervisor		boolean						not null 	default false,
+dept_head		boolean						not null 	default false,
+
+eligible		numeric(15,2)						not null 	default 1000.00,
+awarded			numeric(15,2)						not null	default	0.00,
+pending			numeric(15,2)						not null	default 0.00	
+
+);
+
+select * from project1.employees;
+
+insert into project1.employees 
+(first_name, last_name, username, password, department, supervisor, dept_head)
+values 
+('Vincent', 'Diesel', 'vincent.diesel', 'Testpass1!', 'development', 'true', 'true');
+
+update project1.employees set username = 'joseph.smith' where emp_id = 3;

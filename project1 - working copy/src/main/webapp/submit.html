@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Submit Request</title>
+
+
+      <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" 
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" onload="ifSup(empInfo)">
+            <a class="navbar-brand" href="#"><b>TRMS</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="empmenu.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="submit.html">Submit Request<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="view-my-requests.html">View My Requests</a>
+                </li>
+                <li class="nav-item" id="sup-nav">
+                  <!-- placeholder for management menu link -->
+                </li>
+                <li class="nav-item" id="benco-nav">
+                    <!-- placeholder for benco menu link -->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="sign-out.html">Sign Out</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+      </div>
+
+  <div class="empmenu-container"  id="submittal">
+    <h2 style="text-align: center" >Submit Your Request</h2>
+    <hr>
+    <br>  
+  
+    <form>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Start Date</span>
+        <input id="startDate" type="date" class="form-control" placeholder="Starts On">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Start Time</span>
+        <input id="startTime" type="time" class="form-control" placeholder="Start Time" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Institution Name</span>
+        <input id="institution" pattern="[a-zA-Z0-9 ]" oninvalid="setCustomValidity('Letters, numbers and spaces only')" class="form-control" placeholder="Name of Institution" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Institution City</span>
+        <input id="instCity" pattern="[a-zA-Z0-9 ]" class="form-control"  placeholder="City Name" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Instituion State</span>
+        <input id="instState" pattern="[A-Z]" class="form-control"  maxlength="2" placeholder="State" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Event Description</span>
+        <input id="eventDesc" type="text" class="form-control" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Event Cost</span>
+        <input id="eventCost" type="number" class="form-control" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Hours Missed From Work</span>
+        <input id="timeMissed" type="number" class="form-control" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Justification for Reimbursement</span>
+        <input id="justification" type="text" class="form-control" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Event Type</span>
+        <select id="eventType" required>
+          <option value="university">University Course</option>
+          <option value="seminar">Seminar</option>
+          <option value="certPrep">Certification Preparation Class</option>
+          <option value="certification">Certification</option>
+          <option value="techTraining">Technical Training</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Grade Format</span>
+        <select id="gradeFormat" required>
+          <option value="passFail">Pass/Fail</option>
+          <option value="pctGrade">Percent Grade</option>
+          <option value="ltrGrade">Letter Grade</option>
+          <option value="presGrade">Presentation</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Minimum Passing Grade</span>
+        <input id="minPass" type="text" class="form-control" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Did your Direct Supervisor pre-approve the reimbursement?</span>
+        <select id="supPreApp" required>
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Proof of Supervisor Pre-Approval</span>
+        <input id="spaAtt" type="text" class="form-control" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Did your Department Head pre-approve the reimbursement?</span>
+        <select id="dhPreApp" required>
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Proof of Department Head Pre-Approval</span>
+        <input id="dhpaAtt" type="text" class="form-control" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">Additional Info About Training Event</span>
+        <input id="eventAttString" type="text" class="form-control" required>
+      </div>
+
+      <button type="button" id="submitButton" class="btnstyle1">Submit</button>
+
+    </form>
+
+
+</div>
+</div>
+    <script src="submit.js"></script>
+
+     <!-- Option 1: Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
+     integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" 
+     crossorigin="anonymous"></script>
+
+</body>
+</html>

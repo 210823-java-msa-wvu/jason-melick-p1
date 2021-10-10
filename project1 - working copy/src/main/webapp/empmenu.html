@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>TRMS Home</title>
+
+
+      <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" 
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+</head>
+
+<body onload="jsonDeCookifier();getAmounts()">
+    
+<div class="main-container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" onload="ifSup(empInfo)">
+        <a class="navbar-brand" href="#"><b>TRMS</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="empmenu.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="submit.html">Submit Request</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="view-my-requests.html">View My Requests</a>
+              </li>
+              <li class="nav-item" id="sup-nav">
+                <!-- placeholder for management menu link -->
+              </li>
+              <li class="nav-item" id="benco-nav">
+                  <!-- placeholder for benco menu link -->
+              </li>
+            <li class="nav-item-signout">
+              <a class="nav-link" href="sign-out.html">Sign Out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="empmenu-container" style="background-color: #fff;">
+        <h4 id="welcome"><i>Welcome. Your information did not load. Please check to make sure cookies are not disabled in your browser</i></h4>
+        <br>
+        <br>
+        <p id="message">Unable to find eligible or pending amounts</p>
+
+<script src="empmenu.js"></script>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" 
+crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+        <script src="empmenu.js"></script>
+
+         <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" 
+         crossorigin="anonymous"></script>
+
+        
+    
+    </body>
+    </html>

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Koh+Santepheap&display=swap');
+*{
+    padding: 0 auto;
+    margin: 0 auto;
+}
+body{
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-color: cornflowerblue;
+    margin:0px auto;
+}
+.main-container{
+    margin: 0px auto;
+    
+}
+.navbar{
+    background-color: whitesmoke;
+    margin: 20px 10px 20px 10px;
+    padding-left: 20px;
+
+}
+.nav-item{
+    padding: 10px;
+}
+.nav-item-signout{
+    padding: 10px 10px 10px 150px;
+}
+.navbar-brand{
+    padding-left: 15px;
+}
+table, th, td{
+    padding: 15px;
+}
+.empmenu-container{
+    background-color: #fff;
+    margin:20px 10px 20px 10px;
+    padding:2rem 1rem 2rem 1rem;
+}
+.content{
+    margin: 8%;
+    background-color: #fff;
+    padding: 4rem 1rem 4rem 1rem;
+    box-shadow: 0 0 5px 5px rgba(0,0,0, .05);
+}
+.signin-text{
+    font-style: normal;
+    font-weight: 600 !important;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-color: #495057 !important;
+    border-style: solid;
+    border-width: 0 0 1px 0 !important;
+    color: #495057;
+    height: auto;
+    border-radius: 0;
+    background-color: #fff;
+    background-clip: padding-box;
+}
+.btnstyle1{
+    height: 1.5;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 3px;
+    border-color: black;
+}
+.btnstyle1:hover{
+    background-color: cornflowerblue !important;
+}
